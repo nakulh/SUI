@@ -3,7 +3,7 @@ import WebSocket from 'ws';
 
 const suiClient = new SuiClient({
     transport: new SuiHTTPTransport({
-        url: "https://rpc-mainnet.suiscan.xyz:443",//getFullnodeUrl(net),
+        url: "https://sui-mainnet.public.blastapi.io",//getFullnodeUrl(net),
         WebSocketConstructor: WebSocket,
         websocket: {
           reconnectTimeout: 1000,

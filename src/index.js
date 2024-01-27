@@ -11,14 +11,13 @@ const FLOWX_SWAP_PKG_ID = "0xba153169476e8c3114962261d1edc70de5ad9781b83cc617ecc
 const KRIYA_PKG_ID = "0xa0eba10b173538c8fecca1dff298e488402cc9ff374f8a12ca7758eebe830b66";
 const SUI_SWAP_PKG_ID = "0x361dd589b98e8fcda9a7ee53b85efabef3569d00416640d2faa516e3801d7ffc";
 const TURBOS_SWAP_PKG_ID = "0x91bfbc386a41afcfd9b2533058d7e915a1d3829089cc268ff4333d54d6339ca1";
-
 const suiClient = new SuiClient({
       transport: new SuiHTTPTransport({
-          url: "https://rpc-mainnet.suiscan.xyz:443",//getFullnodeUrl(net),
+          url: `https://sui-mainnet.public.blastapi.io`,//"https://rpc-mainnet.suiscan.xyz:443",//getFullnodeUrl(net),
           WebSocketConstructor: WebSocket,
           websocket: {
             reconnectTimeout: 1000,
-            url: 'wss://rpc-mainnet.suiscan.xyz/websocket',
+            url: `wss://sui-mainnet.public.blastapi.io`,
           }
       }),
 });

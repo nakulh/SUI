@@ -1,5 +1,5 @@
 const bot_token = process.env.TELEGRAM_BOT_TOKEN || ""
-
+//TELEGRAM_BOT_TOKEN=239482 node app.js
 export const notifyEvent = async (chatId, text, url) => {
     const options = {
         method: 'post',
