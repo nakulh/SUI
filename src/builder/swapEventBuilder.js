@@ -55,7 +55,7 @@ export const buildSwapEvent = async (event) => {
             swapEvent = new SwapEventBO(event.id.txDigest, payload.pool_id, KRIYA_SWAP, coinInfo[1], coinInfo[0], payload.amount_in, payload.amount_out, event.sender);
             break;
         case AFTERMATH_SWAP:
-            if (payload.types_in.isArray()) {
+            if (Array.isArray(payload.types_in)) {
                 swapEvent = new SwapEventBO(event.id.txDigest, payload.pool_id, AFTERMATH_SWAP, payload.types_in[0], payload.types_out[0], payload.amounts_in[0], payload.amounts_out[0], event.sender);
                 break;
             }

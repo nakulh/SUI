@@ -2,7 +2,7 @@ import AWS from 'aws-sdk';
 AWS.config.update({ region: "us-west-2" });
 const ddb = new AWS.DynamoDB.DocumentClient()
 
-const getAllSubscribersToWallet = (walletAddress, cb) => {
+export const getAllSubscribersToWallet = (walletAddress, cb) => {
     const params = {
         TableName: 'SubscribedProject',
         IndexName: 'ProjectSubscriber',
@@ -16,16 +16,17 @@ const getAllSubscribersToWallet = (walletAddress, cb) => {
     ddb.query(params, function (err, data) {
         const list = [];
         if (err) {
-          console.log("Error", err.type);
+          console.log("Error", err);
+          cb(null, err);
         } else {
             data.Items.forEach((item) => {
                 list.push({
-                    platform: subscriberPlatform(item.subscriber_platform),
+                    platform: item.subscriber_platform,
                     id: item.subscriber_id
                 })
             })
+            cb(list, err);
         }
-        cb(list);
       });
 }
 
